@@ -1,17 +1,37 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './Main.css'
 import { assets } from '../../assets/assets'
 import { Context } from '../../context/Context'
 
 const Main = () => {
-  const{showResult, loading, recentprompt,resultData, input, setInput, onSent }=useContext(Context)
+  const{showResult, loading, recentprompt,resultData, input, setInput, onSent }=useContext(Context);
+  const [imgzoom,setImgzoom]=useState(false);
+
+  
+  const handleEnterPress=(e)=>{
+    if(e.keyCode===13){
+      onSent();
+      
+    }
+  }
+  
 
   return (
     <div className='main'>
       <div className="nav">
         <p>Gemini</p>
-        <img src={assets.user_icon} alt="" />
+        <img onClick={()=>setImgzoom(pre=>!pre)} src={assets.user_icon} alt="" />
       </div>
+
+      {imgzoom?
+        <div className='imgzoom'>
+           <button onClick={()=>setImgzoom(pre=>!pre)} className='btn' >x</button>
+          <img src={assets.user_icon} alt="" />
+        </div>
+        :null
+      }
+
+
       <div className="main-container">
 
         {!showResult 
@@ -60,18 +80,21 @@ const Main = () => {
             </div>
         </div>
         }
-        
+
 
         <div className="main-bottom">
             <div className="search-box">
-                <input onChange={((e)=>setInput(e.target.value))}  value={input}  type="text" placeholder='Enter a prompt here' />
+                <input onKeyDown={handleEnterPress}  onChange={((e)=>setInput(e.target.value))}  value={input}  type="text" placeholder='Enter a prompt here' />
                 <div>
                     <img src={assets.gallery_icon} alt="" />
-                    <img src={assets.mic_icon} alt="" />
-                    <img onClick={()=>onSent()} src={assets.send_icon} alt="" />
+                    <img src={assets.mic_icon} alt="" /> 
+                  
+                    <img onClick={()=>onSent()} src={assets.send_icon} alt="" />              
+                    
                 </div>
             </div>
         </div>
+    
         {/* <p className="bottom-info">
             Gemini may display inaccurate info, including about people , so double-check its running
         </p> */}

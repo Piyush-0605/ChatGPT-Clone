@@ -65,6 +65,70 @@
     cursor: pointer;
 }
 
+.helper {
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    left: 24%;
+    z-index: 9;
+    max-width: 300px;
+    background-color: aqua;
+    padding: 22px;
+    padding-top: 47px;
+    margin: 10px auto;
+    background-color: #d2d8da;
+}
+.helper p {
+    padding-top: 10px;
+}
+.btn {
+    padding: 5px 12px;
+    border-radius: 50px;
+    border: none;
+    font-size: 17px;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    align-items: center;
+}
+.btn:hover {
+    background-color: #6f7577;
+    color: white;
+}
+
+.activity{
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    left: 24%;
+    z-index: 9;
+    max-width: 300px;
+    background-color: aqua;
+    padding: 25px;
+    padding-top: 47px;
+    margin: 10px auto;
+    background-color: #d2d8da;
+}
+li.active-li {
+    padding: 5px 0px;
+}
+
+.setting {
+    position: absolute;
+    bottom: 67px;
+    left: 11%;
+    background: #c8ced0;
+    border-radius: 10px;
+    padding: 9px 18px;
+    z-index: 1;
+}
+.setting p {
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
 @media (max-width:425px){
     .sidebar{
         display: none;
