@@ -19,14 +19,14 @@ const Main = () => {
   return (
     <div className='main'>
       <div className="nav">
-        <p>Gemini</p>
-        <img onClick={()=>setImgzoom(pre=>!pre)} src={assets.user_icon} alt="" />
+        <p>ChatGPT</p>
+        <img onClick={()=>setImgzoom(pre=>!pre)} src={assets.img} alt="" />
       </div>
 
       {imgzoom?
         <div className='imgzoom'>
            <button onClick={()=>setImgzoom(pre=>!pre)} className='btn' >x</button>
-          <img src={assets.user_icon} alt="" />
+          <img src={assets.img} alt="" />
         </div>
         :null
       }
